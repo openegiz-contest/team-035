@@ -1,0 +1,36 @@
+# Overlay on the official OpenEgiz Docker Compose stack; use base file first.
+services:
+  mirage-setup:
+    image: python:3.12-alpine
+    restart: "no"
+    command: ["python", "/app/setup_twins.py"]
+    environment:
+      DITTO_URL: http://ditto-nginx:80
+      DITTO_USER: ditto
+      DITTO_PASSWORD: ${DITTO_PASSWORD}
+    volumes:
+      - ../../mine-mirage/platform:/app:ro
+    depends_on:
+      init:
+        condition: service_completed_successfully
+
+  mirage-app:
+    build:
+      context: ../../mine-mirage
+    image: mine-mirage/openegiz:local
+    restart: unless-stopped
+    mem_limit: 950m
+    ports:
+      - "127.0.0.1:5233:5233"
+    environment:
+      PORT: "5233"
+      DITTO_URL: http://ditto-nginx:80
+      DITTO_USER: ditto
+      DITTO_PASSWORD: ${DITTO_PASSWORD}
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+    depends_on:
+      mirage-setup:
+        condition: service_completed_successfully
+      mosquitto:
+        condition: service_healthy

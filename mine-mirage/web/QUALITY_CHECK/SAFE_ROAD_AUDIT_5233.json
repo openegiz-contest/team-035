@@ -1,0 +1,868 @@
+[
+  {
+    "map": "altai",
+    "roadCount": 24,
+    "slopeLimitPct": 12,
+    "eligibleSurfaceCells": 10064,
+    "maxGradePct": 12.0,
+    "removedEdges": [
+      "BYP-01",
+      "BYP-03",
+      "E01",
+      "E04",
+      "E07",
+      "E11",
+      "E13",
+      "S01",
+      "S06"
+    ],
+    "newEdges": [],
+    "nodesRelocated": [
+      {
+        "node": "face-north",
+        "kind": "face",
+        "fromX": -221.365,
+        "fromZ": -88.767,
+        "toX": -231.168,
+        "toZ": -94.164,
+        "displacementM": 11.2
+      },
+      {
+        "node": "face-south",
+        "kind": "face",
+        "fromX": -176,
+        "fromZ": 154,
+        "toX": -169.344,
+        "toZ": 137.624,
+        "displacementM": 17.7
+      },
+      {
+        "node": "crusher-a",
+        "kind": "crusher",
+        "fromX": 190,
+        "fromZ": 98,
+        "toX": 21.504,
+        "toZ": 110.461,
+        "displacementM": 169.0
+      },
+      {
+        "node": "crusher-b",
+        "kind": "crusher",
+        "fromX": 337.318,
+        "fromZ": 181.084,
+        "toX": 72.576,
+        "toZ": 86.92,
+        "displacementM": 281.0
+      },
+      {
+        "node": "fuel",
+        "kind": "fuel",
+        "fromX": 321.506,
+        "fromZ": 49.709,
+        "toX": -32.256,
+        "toZ": 124.948,
+        "displacementM": 361.7
+      },
+      {
+        "node": "workshop",
+        "kind": "workshop",
+        "fromX": 400.565,
+        "fromZ": 88.767,
+        "toX": -8.064,
+        "toZ": 65.19,
+        "displacementM": 409.3
+      },
+      {
+        "node": "depot",
+        "kind": "depot",
+        "fromX": 432.188,
+        "fromZ": 142.027,
+        "toX": -115.584,
+        "toZ": 132.191,
+        "displacementM": 547.9
+      },
+      {
+        "node": "weigh",
+        "kind": "weigh",
+        "fromX": 302,
+        "fromZ": 96,
+        "toX": 32.256,
+        "toZ": 74.244,
+        "displacementM": 270.6
+      },
+      {
+        "node": "substation",
+        "kind": "power",
+        "fromX": 316.235,
+        "fromZ": 46.159,
+        "toX": 2.688,
+        "toZ": -27.163,
+        "displacementM": 322.0
+      },
+      {
+        "node": "west-n",
+        "kind": "junction",
+        "fromX": -252.988,
+        "fromZ": -56.811,
+        "toX": -260.736,
+        "toZ": -70.623,
+        "displacementM": 15.8
+      },
+      {
+        "node": "west-s",
+        "kind": "junction",
+        "fromX": -242.447,
+        "fromZ": 78.115,
+        "toX": -206.976,
+        "toZ": 92.353,
+        "displacementM": 38.2
+      },
+      {
+        "node": "ramp-n",
+        "kind": "junction",
+        "fromX": -289.882,
+        "fromZ": -56.811,
+        "toX": -287.616,
+        "toZ": -38.028,
+        "displacementM": 18.9
+      },
+      {
+        "node": "ramp-s",
+        "kind": "junction",
+        "fromX": -147.576,
+        "fromZ": -46.159,
+        "toX": -139.776,
+        "toZ": 21.73,
+        "displacementM": 68.3
+      },
+      {
+        "node": "central",
+        "kind": "junction",
+        "fromX": 5.271,
+        "fromZ": -3.551,
+        "toX": -64.512,
+        "toZ": 14.487,
+        "displacementM": 72.1
+      },
+      {
+        "node": "east-low",
+        "kind": "junction",
+        "fromX": 100.141,
+        "fromZ": 117.172,
+        "toX": -10.752,
+        "toZ": 99.596,
+        "displacementM": 112.3
+      },
+      {
+        "node": "east-mid",
+        "kind": "junction",
+        "fromX": 237.176,
+        "fromZ": 0,
+        "toX": 18.816,
+        "toZ": 30.784,
+        "displacementM": 220.5
+      },
+      {
+        "node": "south-cross",
+        "kind": "junction",
+        "fromX": -5.271,
+        "fromZ": 181.084,
+        "toX": -59.136,
+        "toZ": 101.407,
+        "displacementM": 96.2
+      },
+      {
+        "node": "north-cross",
+        "kind": "junction",
+        "fromX": -5.271,
+        "fromZ": -131.375,
+        "toX": -139.776,
+        "toZ": -95.975,
+        "displacementM": 139.1
+      },
+      {
+        "node": "east-high",
+        "kind": "junction",
+        "fromX": 216.094,
+        "fromZ": -7.101,
+        "toX": 80.64,
+        "toZ": -27.163,
+        "displacementM": 136.9
+      }
+    ],
+    "edges": [
+      {
+        "edgeId": "N01",
+        "from": "face-north",
+        "to": "west-n",
+        "lengthM": 39.3,
+        "maxGradePct": 5.4,
+        "points": 13,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N02",
+        "from": "face-south",
+        "to": "west-s",
+        "lengthM": 399.4,
+        "maxGradePct": 12.0,
+        "points": 105,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N03",
+        "from": "west-n",
+        "to": "ramp-n",
+        "lengthM": 136.1,
+        "maxGradePct": 9.8,
+        "points": 35,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N04",
+        "from": "west-s",
+        "to": "ramp-s",
+        "lengthM": 174.3,
+        "maxGradePct": 11.8,
+        "points": 52,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N05",
+        "from": "west-n",
+        "to": "west-s",
+        "lengthM": 771.3,
+        "maxGradePct": 11.3,
+        "points": 177,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "RAMP-04",
+        "from": "ramp-n",
+        "to": "central",
+        "lengthM": 524.2,
+        "maxGradePct": 10.6,
+        "points": 124,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "RAMP-05",
+        "from": "ramp-s",
+        "to": "central",
+        "lengthM": 138.8,
+        "maxGradePct": 6.1,
+        "points": 28,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E12",
+        "from": "ramp-n",
+        "to": "ramp-s",
+        "lengthM": 663.0,
+        "maxGradePct": 10.6,
+        "points": 151,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "C01",
+        "from": "central",
+        "to": "east-mid",
+        "lengthM": 89.4,
+        "maxGradePct": 5.6,
+        "points": 22,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "C03",
+        "from": "central",
+        "to": "south-cross",
+        "lengthM": 429.8,
+        "maxGradePct": 11.9,
+        "points": 115,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S05",
+        "from": "ramp-s",
+        "to": "south-cross",
+        "lengthM": 324.6,
+        "maxGradePct": 11.9,
+        "points": 101,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "BYP-04",
+        "from": "east-low",
+        "to": "east-mid",
+        "lengthM": 570.7,
+        "maxGradePct": 12.0,
+        "points": 156,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S07",
+        "from": "south-cross",
+        "to": "east-low",
+        "lengthM": 52.7,
+        "maxGradePct": 12.0,
+        "points": 20,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E05",
+        "from": "east-low",
+        "to": "crusher-a",
+        "lengthM": 39.3,
+        "maxGradePct": 11.9,
+        "points": 15,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E02",
+        "from": "east-mid",
+        "to": "crusher-b",
+        "lengthM": 455.8,
+        "maxGradePct": 11.8,
+        "points": 118,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E03",
+        "from": "east-low",
+        "to": "weigh",
+        "lengthM": 557.9,
+        "maxGradePct": 12.0,
+        "points": 178,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E08",
+        "from": "east-mid",
+        "to": "workshop",
+        "lengthM": 368.4,
+        "maxGradePct": 11.8,
+        "points": 90,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E09",
+        "from": "fuel",
+        "to": "workshop",
+        "lengthM": 563.8,
+        "maxGradePct": 12.0,
+        "points": 179,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S04",
+        "from": "depot",
+        "to": "fuel",
+        "lengthM": 85.5,
+        "maxGradePct": 3.7,
+        "points": 6,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S02",
+        "from": "ramp-s",
+        "to": "depot",
+        "lengthM": 510.7,
+        "maxGradePct": 12.0,
+        "points": 138,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E10",
+        "from": "east-low",
+        "to": "substation",
+        "lengthM": 662.1,
+        "maxGradePct": 12.0,
+        "points": 177,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E06",
+        "from": "east-high",
+        "to": "crusher-b",
+        "lengthM": 554.2,
+        "maxGradePct": 11.8,
+        "points": 138,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "BYP-02",
+        "from": "ramp-n",
+        "to": "north-cross",
+        "lengthM": 165.6,
+        "maxGradePct": 7.0,
+        "points": 33,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "C02",
+        "from": "central",
+        "to": "north-cross",
+        "lengthM": 360.8,
+        "maxGradePct": 10.6,
+        "points": 92,
+        "forestCrossingM": 0,
+        "status": "surface_safe_not_texture_survey"
+      }
+    ]
+  },
+  {
+    "map": "saryarka",
+    "roadCount": 24,
+    "slopeLimitPct": 12,
+    "eligibleSurfaceCells": 39409,
+    "maxGradePct": 11.9,
+    "removedEdges": [
+      "E07",
+      "E11",
+      "S01"
+    ],
+    "newEdges": [
+      "BYP-02",
+      "C02",
+      "E06"
+    ],
+    "nodesRelocated": [
+      {
+        "node": "face-north",
+        "kind": "face",
+        "fromX": -252.988,
+        "fromZ": -148.78,
+        "toX": -255.36,
+        "toZ": -149.524,
+        "displacementM": 2.5
+      },
+      {
+        "node": "face-south",
+        "kind": "face",
+        "fromX": -173.929,
+        "fromZ": 144.404,
+        "toX": -174.72,
+        "toZ": 142.829,
+        "displacementM": 1.8
+      },
+      {
+        "node": "crusher-a",
+        "kind": "crusher",
+        "fromX": 63.247,
+        "fromZ": 175.035,
+        "toX": 64.512,
+        "toZ": 178.536,
+        "displacementM": 3.7
+      },
+      {
+        "node": "crusher-b",
+        "kind": "crusher",
+        "fromX": 279.341,
+        "fromZ": 236.298,
+        "toX": 266.112,
+        "toZ": 216.475,
+        "displacementM": 23.8
+      },
+      {
+        "node": "fuel",
+        "kind": "fuel",
+        "fromX": 353.129,
+        "fromZ": 4.376,
+        "toX": 158.592,
+        "toZ": 138.365,
+        "displacementM": 236.2
+      },
+      {
+        "node": "workshop",
+        "kind": "workshop",
+        "fromX": 479.624,
+        "fromZ": 78.766,
+        "toX": 220.416,
+        "toZ": 165.146,
+        "displacementM": 273.2
+      },
+      {
+        "node": "depot",
+        "kind": "depot",
+        "fromX": 453.271,
+        "fromZ": 188.163,
+        "toX": 215.04,
+        "toZ": 214.243,
+        "displacementM": 239.7
+      },
+      {
+        "node": "weigh",
+        "kind": "weigh",
+        "fromX": 121.224,
+        "fromZ": 135.652,
+        "toX": 123.648,
+        "toZ": 136.134,
+        "displacementM": 2.5
+      },
+      {
+        "node": "substation",
+        "kind": "power",
+        "fromX": 469.082,
+        "fromZ": -122.525,
+        "toX": 204.288,
+        "toZ": 15.622,
+        "displacementM": 298.7
+      },
+      {
+        "node": "west-n",
+        "kind": "junction",
+        "fromX": -258.259,
+        "fromZ": -148.78,
+        "toX": -268.8,
+        "toZ": -118.28,
+        "displacementM": 32.3
+      },
+      {
+        "node": "west-s",
+        "kind": "junction",
+        "fromX": -226.635,
+        "fromZ": 118.149,
+        "toX": -198.912,
+        "toZ": 107.122,
+        "displacementM": 29.8
+      },
+      {
+        "node": "ramp-n",
+        "kind": "junction",
+        "fromX": -295.153,
+        "fromZ": -56.886,
+        "toX": -292.992,
+        "toZ": -58.024,
+        "displacementM": 2.4
+      },
+      {
+        "node": "ramp-s",
+        "kind": "junction",
+        "fromX": -158.118,
+        "fromZ": -70.014,
+        "toX": -158.592,
+        "toZ": -69.183,
+        "displacementM": 1.0
+      },
+      {
+        "node": "central",
+        "kind": "junction",
+        "fromX": 0,
+        "fromZ": 0,
+        "toX": 0.0,
+        "toZ": -0.0,
+        "displacementM": 0.0
+      },
+      {
+        "node": "east-low",
+        "kind": "junction",
+        "fromX": 100.141,
+        "fromZ": 122.525,
+        "toX": 99.456,
+        "toZ": 122.744,
+        "displacementM": 0.7
+      },
+      {
+        "node": "east-mid",
+        "kind": "junction",
+        "fromX": 179.2,
+        "fromZ": 4.376,
+        "toX": 188.16,
+        "toZ": 26.78,
+        "displacementM": 24.1
+      },
+      {
+        "node": "south-cross",
+        "kind": "junction",
+        "fromX": 5.271,
+        "fromZ": 236.298,
+        "toX": 5.376,
+        "toZ": 236.56,
+        "displacementM": 0.3
+      },
+      {
+        "node": "north-cross",
+        "kind": "junction",
+        "fromX": 47.435,
+        "fromZ": -214.418,
+        "toX": -99.456,
+        "toZ": -171.841,
+        "displacementM": 152.9
+      },
+      {
+        "node": "east-high",
+        "kind": "junction",
+        "fromX": 295.153,
+        "fromZ": -157.532,
+        "toX": 212.352,
+        "toZ": 33.476,
+        "displacementM": 208.2
+      }
+    ],
+    "edges": [
+      {
+        "edgeId": "N01",
+        "from": "face-north",
+        "to": "west-n",
+        "lengthM": 40.5,
+        "maxGradePct": 11.0,
+        "points": 13,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N02",
+        "from": "face-south",
+        "to": "west-s",
+        "lengthM": 48.6,
+        "maxGradePct": 10.5,
+        "points": 17,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N03",
+        "from": "west-n",
+        "to": "ramp-n",
+        "lengthM": 71.7,
+        "maxGradePct": 6.5,
+        "points": 15,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N04",
+        "from": "west-s",
+        "to": "ramp-s",
+        "lengthM": 271.9,
+        "maxGradePct": 10.9,
+        "points": 45,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "N05",
+        "from": "west-n",
+        "to": "west-s",
+        "lengthM": 372.8,
+        "maxGradePct": 10.9,
+        "points": 70,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "RAMP-04",
+        "from": "ramp-n",
+        "to": "central",
+        "lengthM": 314.1,
+        "maxGradePct": 7.8,
+        "points": 49,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "RAMP-05",
+        "from": "ramp-s",
+        "to": "central",
+        "lengthM": 183.7,
+        "maxGradePct": 7.8,
+        "points": 50,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E12",
+        "from": "ramp-n",
+        "to": "ramp-s",
+        "lengthM": 138.5,
+        "maxGradePct": 3.3,
+        "points": 9,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "C01",
+        "from": "central",
+        "to": "east-mid",
+        "lengthM": 261.3,
+        "maxGradePct": 9.7,
+        "points": 44,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "C03",
+        "from": "central",
+        "to": "south-cross",
+        "lengthM": 280.3,
+        "maxGradePct": 9.8,
+        "points": 36,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S05",
+        "from": "ramp-s",
+        "to": "south-cross",
+        "lengthM": 417.5,
+        "maxGradePct": 9.8,
+        "points": 78,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "BYP-04",
+        "from": "east-low",
+        "to": "east-mid",
+        "lengthM": 137.7,
+        "maxGradePct": 8.5,
+        "points": 32,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S07",
+        "from": "south-cross",
+        "to": "east-low",
+        "lengthM": 162.4,
+        "maxGradePct": 9.8,
+        "points": 39,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E05",
+        "from": "east-low",
+        "to": "crusher-a",
+        "lengthM": 72.2,
+        "maxGradePct": 4.2,
+        "points": 13,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E02",
+        "from": "east-mid",
+        "to": "crusher-b",
+        "lengthM": 226.6,
+        "maxGradePct": 10.3,
+        "points": 37,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E03",
+        "from": "east-low",
+        "to": "weigh",
+        "lengthM": 29.0,
+        "maxGradePct": 4.2,
+        "points": 9,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E08",
+        "from": "east-mid",
+        "to": "workshop",
+        "lengthM": 153.7,
+        "maxGradePct": 8.8,
+        "points": 20,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E09",
+        "from": "fuel",
+        "to": "workshop",
+        "lengthM": 76.6,
+        "maxGradePct": 11.9,
+        "points": 24,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S04",
+        "from": "depot",
+        "to": "fuel",
+        "lengthM": 102.6,
+        "maxGradePct": 9.2,
+        "points": 33,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "S02",
+        "from": "ramp-s",
+        "to": "depot",
+        "lengthM": 476.5,
+        "maxGradePct": 11.4,
+        "points": 109,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E10",
+        "from": "east-low",
+        "to": "substation",
+        "lengthM": 156.4,
+        "maxGradePct": 6.1,
+        "points": 38,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "E06",
+        "from": "east-high",
+        "to": "crusher-b",
+        "lengthM": 244.4,
+        "maxGradePct": 11.2,
+        "points": 43,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "BYP-02",
+        "from": "ramp-n",
+        "to": "north-cross",
+        "lengthM": 234.8,
+        "maxGradePct": 10.7,
+        "points": 45,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      },
+      {
+        "edgeId": "C02",
+        "from": "central",
+        "to": "north-cross",
+        "lengthM": 249.6,
+        "maxGradePct": 10.7,
+        "points": 49,
+        "forestCrossingM": null,
+        "status": "surface_safe_not_texture_survey"
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+globalThis.document={createElement:()=>({relList:{supports:()=>true}})};
+const {G:Group,S:Scene}=await import('../assets/three-vendor.js');
+const {MineScene}=await import('../assets/mine-scene.js');
+const {MineOperations}=await import('../live/modules/operations.js');
+for(const id of ['altai','saryarka']){
+  const map=(await import(`../live/maps/${id}.js`)).default;
+  const scene=Object.create(MineScene.prototype);
+  Object.assign(scene,{map,modelCache:{},cameraTerrain:null,facilityRoots:new Map(),visualRoads:new Map(),trucks:new Map(),assets:new Map()});
+  scene.scene=new Scene();scene.facilityGroup=new Group();scene.scene.add(scene.facilityGroup);
+  scene.prepareRoads();
+  const workshop=map.nodes.find(n=>n.kind==='workshop');scene.createWorkshopFacility(workshop);
+  assert(scene.workshopBay,'functional workshop created');
+  assert(scene.facilityRoots.get(workshop.id)?.name==='functional-service-hangar');
+  const w=scene.workshopBay;
+  assert(Math.hypot(w.root.position.x-workshop.x,w.root.position.z-workshop.z)<=52,'garage within 52m of road node');
+  const snap=new MineOperations(map).snapshot();
+  snap.fleet[0].status='repairing';snap.fleet[0].target=workshop.id;snap.fleet[0].serviceActive=true;snap.fleet[0].serviceElapsedSeconds=30;
+  snap.fleet[1].status='repairing';snap.fleet[1].target=workshop.id;snap.fleet[1].serviceActive=false;
+  snap.fleet[2].status='repairing';snap.fleet[2].target=workshop.id;snap.fleet[2].serviceActive=false;
+  const staging=scene.serviceTargets(snap);
+  assert.equal(staging.size,3);
+  const a=staging.get(snap.fleet[0].id),b=staging.get(snap.fleet[1].id),c=staging.get(snap.fleet[2].id);
+  assert(a.inside && !b.inside && !c.inside);
+  assert(Math.hypot(a.position.x-b.position.x,a.position.z-b.position.z)>20);
+  assert(Math.hypot(b.position.x-c.position.x,b.position.z-c.position.z)>15);
+  assert([a,b,c].every(x=>[x.position.x,x.position.y,x.position.z].every(Number.isFinite)));
+  const wpt=scene.serviceWorldPosition(-23,0),inside=scene.serviceWorldPosition(0,0);
+  assert(Math.hypot(wpt.x-inside.x,wpt.z-inside.z)>20,'garage has a physical entry path');
+  console.log('PASS',id,'service station, 1 vehicle inside, 2 queued without overlap');
+}

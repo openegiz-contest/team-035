@@ -1,0 +1,40 @@
+{
+  "change": "Saryarka weigh and crusher A access roads reauthored",
+  "weigh": {
+    "id": "weigh",
+    "name": "Весовой пункт",
+    "kind": "weigh",
+    "x": 121.224,
+    "z": 135.652,
+    "elevation": -48.196
+  },
+  "crusherA": {
+    "id": "crusher-a",
+    "name": "Дробилка A",
+    "kind": "crusher",
+    "x": 63.247,
+    "z": 175.035,
+    "elevation": -49.16
+  },
+  "removedEdges": [
+    "E01"
+  ],
+  "changedEdges": [
+    {
+      "id": "E03",
+      "fromNode": "east-low",
+      "toNode": "weigh",
+      "lengthM": 25.8,
+      "maxGradePct": 2.6
+    },
+    {
+      "id": "E05",
+      "fromNode": "east-low",
+      "toNode": "crusher-a",
+      "lengthM": 69.8,
+      "maxGradePct": 3.5
+    }
+  ],
+  "terrainSource": "open_pit_mine.glb",
+  "note": "Raster GLB mesh check, not a browser visual test or a survey-grade road design"
+}

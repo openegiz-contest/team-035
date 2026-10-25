@@ -1,0 +1,19 @@
+{
+  "version": "3.3.1-simulation-integrated",
+  "referenceMachine": "Caterpillar 777 (07), used as a public benchmark, not equipment identification",
+  "publicReference": {
+    "url": "https://www.cat.com/en_US/products/new/equipment/off-highway-trucks/off-highway-trucks/115560.html/",
+    "netPowerKw": 683,
+    "targetPayloadT": 91.7,
+    "loadedTopSpeedKmH": 65.9
+  },
+  "simulationAssumptionsNotFieldCalibrated": {
+    "fuelLoadedLitresPerKm": 3.15,
+    "fuelEmptyLitresPerKm": 1.85,
+    "dieselKztPerL": 320,
+    "engineWearPointsPerHour": 0.35,
+    "tyreWearPointsPerKm": 0.13,
+    "baseServiceSecondsInSimulator": 55
+  },
+  "evidencePolicy": "No real sensor readings or verified profit claims. Part-condition percentages and changes after service are transparent scenario estimates."
+}

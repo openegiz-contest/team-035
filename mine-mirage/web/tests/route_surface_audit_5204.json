@@ -1,0 +1,432 @@
+[
+  {
+    "map": "saryarka",
+    "mesh": "open_pit_mine.glb",
+    "validCoveragePct": 79.2,
+    "nodes": 20,
+    "edges": 34,
+    "reviewRequired": 18,
+    "maxGradePct": 40.0,
+    "edgesDetail": [
+      {
+        "id": "N01",
+        "maxGradePct": 2.4,
+        "lengthM": 5.3,
+        "manualReview": false
+      },
+      {
+        "id": "N02",
+        "maxGradePct": 10.0,
+        "lengthM": 73.5,
+        "manualReview": false
+      },
+      {
+        "id": "N03",
+        "maxGradePct": 5.4,
+        "lengthM": 119.1,
+        "manualReview": false
+      },
+      {
+        "id": "N04",
+        "maxGradePct": 11.1,
+        "lengthM": 312.2,
+        "manualReview": false
+      },
+      {
+        "id": "RAMP-04",
+        "maxGradePct": 7.5,
+        "lengthM": 315.9,
+        "manualReview": false
+      },
+      {
+        "id": "RAMP-05",
+        "maxGradePct": 7.5,
+        "lengthM": 183.6,
+        "manualReview": false
+      },
+      {
+        "id": "N05",
+        "maxGradePct": 9.6,
+        "lengthM": 438.0,
+        "manualReview": false
+      },
+      {
+        "id": "BYP-01",
+        "maxGradePct": 26.8,
+        "lengthM": 1500.7,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-02",
+        "maxGradePct": 26.8,
+        "lengthM": 1438.1,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-03",
+        "maxGradePct": 26.8,
+        "lengthM": 1898.9,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-04",
+        "maxGradePct": 15.2,
+        "lengthM": 173.1,
+        "manualReview": false
+      },
+      {
+        "id": "S01",
+        "maxGradePct": 26.8,
+        "lengthM": 2686.4,
+        "manualReview": true
+      },
+      {
+        "id": "S02",
+        "maxGradePct": 26.8,
+        "lengthM": 2639.7,
+        "manualReview": true
+      },
+      {
+        "id": "S03",
+        "maxGradePct": 26.8,
+        "lengthM": 3040.5,
+        "manualReview": true
+      },
+      {
+        "id": "S04",
+        "maxGradePct": 15.9,
+        "lengthM": 322.3,
+        "manualReview": false
+      },
+      {
+        "id": "S05",
+        "maxGradePct": 9.6,
+        "lengthM": 435.3,
+        "manualReview": false
+      },
+      {
+        "id": "S06",
+        "maxGradePct": 26.8,
+        "lengthM": 2669.1,
+        "manualReview": true
+      },
+      {
+        "id": "S07",
+        "maxGradePct": 26.8,
+        "lengthM": 2747.8,
+        "manualReview": true
+      },
+      {
+        "id": "C01",
+        "maxGradePct": 15.2,
+        "lengthM": 309.5,
+        "manualReview": false
+      },
+      {
+        "id": "C02",
+        "maxGradePct": 26.8,
+        "lengthM": 1754.2,
+        "manualReview": true
+      },
+      {
+        "id": "C03",
+        "maxGradePct": 8.8,
+        "lengthM": 284.1,
+        "manualReview": false
+      },
+      {
+        "id": "E01",
+        "maxGradePct": 26.8,
+        "lengthM": 2798.4,
+        "manualReview": true
+      },
+      {
+        "id": "E02",
+        "maxGradePct": 15.2,
+        "lengthM": 292.3,
+        "manualReview": false
+      },
+      {
+        "id": "E03",
+        "maxGradePct": 40.0,
+        "lengthM": 289.7,
+        "manualReview": true
+      },
+      {
+        "id": "E04",
+        "maxGradePct": 38.3,
+        "lengthM": 674.3,
+        "manualReview": true
+      },
+      {
+        "id": "E05",
+        "maxGradePct": 26.8,
+        "lengthM": 2690.7,
+        "manualReview": true
+      },
+      {
+        "id": "E06",
+        "maxGradePct": 26.8,
+        "lengthM": 2927.7,
+        "manualReview": true
+      },
+      {
+        "id": "E07",
+        "maxGradePct": 15.9,
+        "lengthM": 491.4,
+        "manualReview": false
+      },
+      {
+        "id": "E08",
+        "maxGradePct": 26.8,
+        "lengthM": 3146.9,
+        "manualReview": true
+      },
+      {
+        "id": "E09",
+        "maxGradePct": 15.8,
+        "lengthM": 510.6,
+        "manualReview": false
+      },
+      {
+        "id": "E10",
+        "maxGradePct": 26.8,
+        "lengthM": 2779.7,
+        "manualReview": true
+      },
+      {
+        "id": "E11",
+        "maxGradePct": 20.2,
+        "lengthM": 881.3,
+        "manualReview": true
+      },
+      {
+        "id": "E12",
+        "maxGradePct": 4.1,
+        "lengthM": 145.0,
+        "manualReview": false
+      },
+      {
+        "id": "E13",
+        "maxGradePct": 38.3,
+        "lengthM": 3264.5,
+        "manualReview": true
+      }
+    ]
+  },
+  {
+    "map": "altai",
+    "mesh": "mining_quarry.glb",
+    "validCoveragePct": 66.3,
+    "nodes": 20,
+    "edges": 34,
+    "reviewRequired": 21,
+    "maxGradePct": 32.9,
+    "edgesDetail": [
+      {
+        "id": "N01",
+        "maxGradePct": 20.8,
+        "lengthM": 557.3,
+        "manualReview": true
+      },
+      {
+        "id": "N02",
+        "maxGradePct": 14.4,
+        "lengthM": 395.4,
+        "manualReview": false
+      },
+      {
+        "id": "N03",
+        "maxGradePct": 28.1,
+        "lengthM": 280.3,
+        "manualReview": true
+      },
+      {
+        "id": "N04",
+        "maxGradePct": 9.9,
+        "lengthM": 174.9,
+        "manualReview": false
+      },
+      {
+        "id": "RAMP-04",
+        "maxGradePct": 7.1,
+        "lengthM": 369.6,
+        "manualReview": false
+      },
+      {
+        "id": "RAMP-05",
+        "maxGradePct": 8.3,
+        "lengthM": 272.9,
+        "manualReview": false
+      },
+      {
+        "id": "N05",
+        "maxGradePct": 28.1,
+        "lengthM": 750.2,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-01",
+        "maxGradePct": 23.3,
+        "lengthM": 1017.8,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-02",
+        "maxGradePct": 20.1,
+        "lengthM": 1743.6,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-03",
+        "maxGradePct": 24.1,
+        "lengthM": 1727.3,
+        "manualReview": true
+      },
+      {
+        "id": "BYP-04",
+        "maxGradePct": 19.7,
+        "lengthM": 1596.3,
+        "manualReview": true
+      },
+      {
+        "id": "S01",
+        "maxGradePct": 15.6,
+        "lengthM": 1354.4,
+        "manualReview": false
+      },
+      {
+        "id": "S02",
+        "maxGradePct": 15.6,
+        "lengthM": 1529.3,
+        "manualReview": false
+      },
+      {
+        "id": "S03",
+        "maxGradePct": 15.6,
+        "lengthM": 1498.8,
+        "manualReview": false
+      },
+      {
+        "id": "S04",
+        "maxGradePct": 17.1,
+        "lengthM": 223.1,
+        "manualReview": true
+      },
+      {
+        "id": "S05",
+        "maxGradePct": 14.4,
+        "lengthM": 893.1,
+        "manualReview": false
+      },
+      {
+        "id": "S06",
+        "maxGradePct": 19.7,
+        "lengthM": 1095.4,
+        "manualReview": true
+      },
+      {
+        "id": "S07",
+        "maxGradePct": 17.1,
+        "lengthM": 849.3,
+        "manualReview": true
+      },
+      {
+        "id": "C01",
+        "maxGradePct": 19.7,
+        "lengthM": 2011.1,
+        "manualReview": true
+      },
+      {
+        "id": "C02",
+        "maxGradePct": 20.1,
+        "lengthM": 1469.7,
+        "manualReview": true
+      },
+      {
+        "id": "C03",
+        "maxGradePct": 15.6,
+        "lengthM": 1116.8,
+        "manualReview": false
+      },
+      {
+        "id": "E01",
+        "maxGradePct": 10.7,
+        "lengthM": 132.6,
+        "manualReview": false
+      },
+      {
+        "id": "E02",
+        "maxGradePct": 19.7,
+        "lengthM": 814.3,
+        "manualReview": true
+      },
+      {
+        "id": "E03",
+        "maxGradePct": 5.0,
+        "lengthM": 31.8,
+        "manualReview": false
+      },
+      {
+        "id": "E04",
+        "maxGradePct": 19.7,
+        "lengthM": 816.0,
+        "manualReview": true
+      },
+      {
+        "id": "E05",
+        "maxGradePct": 19.7,
+        "lengthM": 1704.5,
+        "manualReview": true
+      },
+      {
+        "id": "E06",
+        "maxGradePct": 19.7,
+        "lengthM": 876.6,
+        "manualReview": true
+      },
+      {
+        "id": "E07",
+        "maxGradePct": 19.7,
+        "lengthM": 401.5,
+        "manualReview": true
+      },
+      {
+        "id": "E08",
+        "maxGradePct": 19.7,
+        "lengthM": 339.1,
+        "manualReview": true
+      },
+      {
+        "id": "E09",
+        "maxGradePct": 12.8,
+        "lengthM": 168.7,
+        "manualReview": false
+      },
+      {
+        "id": "E10",
+        "maxGradePct": 32.9,
+        "lengthM": 1578.3,
+        "manualReview": true
+      },
+      {
+        "id": "E11",
+        "maxGradePct": 21.1,
+        "lengthM": 715.5,
+        "manualReview": true
+      },
+      {
+        "id": "E12",
+        "maxGradePct": 8.2,
+        "lengthM": 642.5,
+        "manualReview": false
+      },
+      {
+        "id": "E13",
+        "maxGradePct": 19.7,
+        "lengthM": 341.0,
+        "manualReview": true
+      }
+    ]
+  }
+]

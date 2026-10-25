@@ -1,64 +1,58 @@
-# SUBMISSION
+# Замысел
 
-<!-- Fill in every section. The AI Jury studies this file together with the code, the Build Report, the presentation and the Stand's interface. Accepted languages: English, Kazakh, Russian. These hint comments may be deleted. -->
+**MINE//MIRAGE — диспетчерский цифровой двойник открытого карьера.** Мы показываем цепочку **бурение/MWD → фрагментация → погрузка → самосвалы → дробилки**, где качество первичного разрушения породы влияет на последующие операции, а поломки и погода вызывают изменение маршрутов, очередей и производительности. Предприятия «Сарыарка» и «Алтай» вымышлены и представляют обобщённые открытые карьеры, не конкретные реальные месторождения.
 
-## Concept
+**Кто пользуется:** диспетчер смены, инженер БВР, механик парка и технолог дробильного комплекса. **Какое решение принимает:** нужна ли корректировка работы оборудования при ухудшении фрагментации, отказе дробилки, изменении погоды или росте очереди. **Почему:** решения нельзя принимать раздельно — ограничение в одном звене изменяет показатели других звеньев. Мы сознательно сосредоточились на взаимосвязях и на пространственном представлении, а не на максимальном числе независимых панелей.
 
-<!-- Written by the Team before the code: your own choice, a few sentences per answer. Everything else in the Submission follows from it. -->
+Числа используются как синтетические модельные допущения: исходные параметры открыто приведены в `mine-mirage/web/live/modules/` и `mine-mirage/web/live/maps/`; они не претендуют на паспортную точность реальных машин. Для новых пользовательских решений не применяется копия Example Mine без изменений.
 
-**Enterprise:** <!-- Which mining enterprise, or which part of it, the twin represents. -->
+## Команда
 
-**Users:** <!-- Who uses the twin. -->
+- @tamerlan2516-ctrl
+- @armaneleu4-eng
+- @NurgeldiAkan
+- @Sawa107
 
-**Decision:** <!-- Which decision the twin helps them make. -->
+## Реализация на OpenEgiz
 
-**Why this choice:** <!-- Why this enterprise, these users and this decision. -->
+- `mirage-setup` создаёт иерархию двойников `org.mine.mirage:*` через Ditto REST.
+- `mirage-app` — единственный расчётный движок MINE//MIRAGE, публикующий синтетическую телеметрию в `mosquitto` с командами Ditto Protocol.
+- Для транспортной техники, экскаваторов, дробилок, бурового станка и корневого карьера созданы отдельные двойники.
+- WebGL-интерфейс загружает весь снимок через серверный proxy `GET /api/twin` из Eclipse Ditto. Сценарии отправляются на сервер; последствия видны после обновления Ditto. Графика без платформы не работает.
+- Установка: команды в корневом `README.md`. UI: `http://localhost:5233/`, raw Ditto twin: `http://localhost:5233/api/twin`.
 
-**Real or fictional:** <!-- A real object: name it and give the sources of its numbers. A fictional one: which real objects it resembles and where its numbers come from. A real object with sourced numbers scores higher. -->
+## Модули и демонстрация
 
-## Team
-
-<!-- GitHub usernames of the Participants. Other personal data are not required: the repository becomes public after the Freeze (Rules, section 15). -->
-
-| GitHub |
-|---|
-|  |
-
-## Mine
-
-<!-- Which part of a mining enterprise the Submission represents (open pit, underground mine, processing plant…), which objects are twins in OpenEgiz, how they are related, and where they are defined in the code. -->
-
-## Modules and What-if Scenarios
-
-<!-- Modules: functions on top of the twin, from the Mine Map or your own. What-if Scenarios: changes of an operating condition that can be run on the Stand without changing the code (close a road, stop equipment…). Only what works on the Stand is taken into account. -->
-
-| Module or What-if Scenario | What it does | How to see it on the Stand | How to undo it (scenarios) |
+| Модуль | Действие | Как проверить на стенде | Ограничение |
 |---|---|---|---|
-|  |  |  |  |
+| Транспорт / диспетчеризация | Обслуживает граф маршрутов, рейсы, очереди, груз и топливо | 3D → `Самосвал · колёса`; KPI рейсов, `ht-01` в Ditto | Синтетические параметры и движение |
+| Бурение / MWD / БВР | Синтетическая сетка 20 скважин, MWD и индекс фрагментации меняют добычную цепочку | `Буровзрывные работы` → `Запустить учебный цикл`; двойник `drill-01` | Не рассчитывает настоящие заряды и паспорта БВР |
+| Переработка | Изменяет переработку в зависимости от очереди, оборудования и состояния породы | `Дробилка · конвейер`, `Отказ дробилки A`; двойники `cr-01`, `cr-02` | Упрощённый модельный расход, не промышленный технологический баланс |
+| ТО и надёжность | Моделирует износ узлов, сервис, ремонты | `ТО и ремонты`; сценарий `preventive` | Условные коэффициенты износа, отсутствует журнал реального предприятия |
 
-## What works and what does not
+## Сценарии «что если» и отмена
 
-<!-- What has been verified, what is unfinished, which bugs are known. -->
+| Сценарий | Запуск | Последствия | Как отменить |
+|---|---|---|---|
+| Бурение → БВР | `Буровзрывные работы` → `Запустить учебный цикл` | Стадии, MWD, фрагментация, влияние на погрузку и дробилку; Ditto drill | Кнопка `Отменить подготовку` до завершения; `↺` для нового опыта |
+| Ливень | `Планы и сценарии` → `Ливень` | Видимость, состояние дорог, скорость, возможные очереди | `↺` сброс симуляции |
+| Отказ дробилки A | `Планы и сценарии` → `Отказ дробилки A` | Состояние линии, перераспределение, пробки и простой | Сценарий `repair` либо `↺` |
+| Переключение карьерной карты | Выпадающий список «Сарыарка» / «Алтай» | Смена карты, другой рельеф и маршрутный граф, новые twin-показатели | Выбрать исходную карту |
 
-## Data and Assumptions
+**Важное уточнение:** подсистема `/engineering.html` содержит отдельные локальные контрольные расчёты и не заявляется как доказательство работы модуля на Ditto.
 
-<!--
-- Synthetic and real data.
-- Sources of parameters: equipment data sheets, reference literature, industrial safety regulations, datasets.
-- Datasets: source, license, how they are provided (in the repository or downloaded per the README).
-Confidential data of organizations and personal data are prohibited.
--->
+## Данные и допущения
 
-## Mine visualization
+Все производственные данные, MWD, масса, содержание меди, погодные эффекты, скорости, физика движения и расход топлива — **синтетические**, не считанные с настоящего рудника. Их источники — константы и алгоритмы исходного кода `mine-mirage/web/live/modules/{operations,blast-cycle,production,engineering,weather-impact}.js` и две карты `mine-mirage/web/live/maps/`. Параметры не откалиброваны по данным паспортов машин. Реальные datasets не загружаются. Источники изображений и лицензии 3D-ассетов требуют подтверждения по `THIRD_PARTY_ASSETS.md` до публичного выпуска. Исходный шаблон OpenEgiz принадлежит правообладателям и лицензируется отдельно.
 
-<!-- Address on the Stand, dashboard or scene; what it shows. -->
+## Визуализация и отличие от типового примера
 
-## Limitations
+Стенд содержит объёмные карты двух вымышленных карьеров с отдельными GLB-моделями, подвижной карьерной техникой, сетью и узлами обработки, 20-точечной сеткой БВР и динамическими KPI. В отличие от Example Mine реализованы сети маршрутов, несколько дробилок, десятки переменных состояния, MWD/фрагментация, износ техники и широкий набор сценариев. Пользователь может наблюдать изменения пространственно и сверять их с Ditto twin state.
 
-## Presentation
+## Работоспособность и ограничения
 
-`presentation.pdf` in the repository root. Video (optional): <link>
+**Проверено локально:** создание расчётных снимков на двух картах; модельный поток до имитации MQTT/Ditto и обратно через HTTP GET; запуск `blast`; смена карты; синтаксис клиентского JS. **Не проверено в этом окружении:** полный официальный Docker Compose стек из шаблона, поведение на судейском CPU WebGL, достоверность всех симуляционных параметров. Нельзя считать это свидетельством успешного запуска на машине судьи.
 
----
+## Презентация
 
-Platform: OpenEgiz v1.0.4.
+См. `presentation.pdf` (план и пояснения архитектуры/демонстрации). Видео не предоставляется.

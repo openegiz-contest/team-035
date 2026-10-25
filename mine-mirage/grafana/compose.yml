@@ -1,0 +1,7 @@
+# OpenEgiz overlay: automatically provision a dashboard from the existing
+# Grafana provider (the same method used in examples/mine/compose.yml).
+# Paths are resolved relative to the FIRST -f file: deploy/compose/docker-compose.yml.
+services:
+  grafana:
+    volumes:
+      - ../../mine-mirage/grafana/mine-mirage-dashboard.json:/var/lib/grafana/example-dashboards/mine-mirage.json:ro

@@ -1,0 +1,20 @@
+{
+  "build": "5242",
+  "based_on": "5233",
+  "date": "2026-10-25",
+  "purpose": "Enlarged full-scale petrol/fuel station visual with independently fitted canopy, fuel module, and store",
+  "routesPerMap": 24,
+  "slopeLimitPct": 12,
+  "notes": "12% segment grade on rasterized GLB; Altai vegetation classified and avoided; NOT photo-surveyed roads; routes require browser verification",
+  "newFeatures": [
+    "20-hole synthetic MWD grid",
+    "GLB drill rig with explicit yellow/black PBR materials, relocated drill pad, animated drilling motion and borehole markers",
+    "staged blast cycle with existing perimeter safeguards",
+    "fragmentation affects loader productivity and crusher throughput",
+    "dedicated Russian BVR interface",
+    "Separate Saryarka fuel/service visual sites on the marked bench, with collision-free auxiliary fuel module",
+    "Saryarka visual parking area and weighbridge moved to separate terrain-checked pads, away from haul routes",
+    "AZS GLB components now fitted independently: visible ~62×29×13 m canopy, ~22×15×9 m shop, clear auxiliary fuel module"
+  ],
+  "blastData": "Synthetic demonstration indices only; not actual engineering blast design data"
+}

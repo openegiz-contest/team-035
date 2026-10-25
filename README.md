@@ -1,43 +1,93 @@
-# <Team name>: a digital mine on OpenEgiz
+# MINE//MIRAGE — цифровой карьер на OpenEgiz
 
-> Team Repository of the contest “Digital Mine on OpenEgiz”. **Replace the contents of this file with the instructions for your Submission.** The AI Jury runs the Submission strictly by these instructions, from scratch, in the Judge Environment. Accepted languages: English, Kazakh, Russian.
+> Конкурсная надстройка над **оригинальным шаблоном OpenEgiz** (не отдельная замена платформы). Язык интерфейса — русский. Исходные карты — вымышленные рудники «Сарыарка» и «Алтай»; телеметрия полностью синтетическая.
 
-> **Start with the Concept**, the first section of [SUBMISSION.md](SUBMISSION.md): the Team writes it before any code. What AI agents build from this Template without a Concept is the Default Solution, published on the [contest site](https://openegiz-contest.github.io/) as the low bar: a Submission that does not go beyond it gets low levels in the Rubric. AI agents read [AGENTS.md](AGENTS.md).
+## Запуск с нуля в окружении судьи (Ubuntu 24.04 / Docker Compose)
 
-## Running
+**Важно:** настоящим конкурсным репозиторием должен быть приватный репозиторий команды, созданный организатором на основе шаблона OpenEgiz. Это дополнение нужно скопировать **в корень этого репозитория**, сохранив его `deploy/`, `scripts/`, `Makefile` и остальное ядро OpenEgiz. Модель сама по себе вне платформы не запускается для конкурсного режима.
 
-Requirements (Docker, `make`, Windows/WSL2 setup) are in [OPENEGIZ.md](OPENEGIZ.md) / [OPENEGIZ.ru.md](OPENEGIZ.ru.md).
+Окружение: 8 vCPU, 16 GiB RAM, Docker Engine и Docker Compose; `make` устанавливается автоматически в первом шаге. Интернет используется при первой загрузке официальных Docker-образов и npm-зависимости `mqtt`.
+
+Выполнить **ровно** следующие команды из корня репозитория:
 
 ```bash
-sudo apt install -y make   # if make is missing (clean Ubuntu)
-make up            # the OpenEgiz platform
-make example-mine  # the Example Mine: twins, simulator, dashboard
+sudo apt-get update
+sudo apt-get install -y make
+bash mine-mirage/start-judge.sh
 ```
 
-Replace these commands with the commands of your Submission. The Submission must start by following these instructions without manual intervention (Rules, clause 6.4); downloading datasets and models and building are also listed here.
+Скрипт запускает **оригинальную платформу OpenEgiz**, создаёт цифровые двойники в Eclipse Ditto, стартует симулятор, а затем проверяет возврат телеметрии **из Ditto**. В конце выводит адрес:
 
-## What to open
+**http://127.0.0.1:5233/**
 
-- Grafana: the address and login are printed by `make up`.
-- <where to see the mine visualization, which dashboards>
+В дополнительной вкладке для проверки Ditto можно открыть `http://127.0.0.1:5233/api/twin` (объект с `dittoThingId` и `snapshot`). Успешность MQTT-связи: `http://127.0.0.1:5233/api/health`. Интерфейс **не рисует локальную симуляцию**, если данные из Ditto недоступны.
 
-## Repository contents
+Если команды завершились с ошибкой, см. журналы:
 
-| Path | Contents |
-|---|---|
-| `team/` | Directory for the Team's code. Using it is optional: any part may be changed, including the platform core |
-| `SUBMISSION.md` | Description of the Submission: **required** |
-| `presentation.pdf` | Presentation: **required**, in the repository root |
-| `AGENTS.md`, `CLAUDE.md` | Instructions for your AI agents (Codex, Claude Code and others read them automatically) |
-| `examples/mine/` | The Example Mine: shows how a digital mine is built on OpenEgiz. It is not a basis for the Submission |
-| `OPENEGIZ.md`, `OPENEGIZ.ru.md` | Documentation of the OpenEgiz platform v1.0.4 |
+```bash
+docker compose --env-file deploy/compose/.env -f deploy/compose/docker-compose.yml -f mine-mirage/compose.yml logs --tail=120 mirage-setup mirage-app
+```
 
-The Submission is the `main` branch at the moment of the Freeze; other branches are not evaluated.
+Доступны штатные `make smoke`, `make down` из корня OpenEgiz. Для повторного полного запуска можно снова выполнить `bash mine-mirage/start-judge.sh` — создание двойников идемпотентно.
 
-## License
+## Архитектура — критический пункт 6.2
 
-The Submission is distributed under the MIT license, see [LICENSE](LICENSE). Copyright belongs to the Team: add the line `Copyright (c) 2026 <Team members>` to `LICENSE`.
+```text
+Node.js: MineOperations (единственный движок)
+    │ 1.5 s, синтетические показания оборудования
+    ▼
+MQTT broker OpenEgiz (mosquitto, telemetry/*)
+    │ Eclipse Ditto protocol modify /features
+    ▼
+Eclipse Ditto: org.mine.mirage:mine-01,
+             org.mine.mirage:ht-01 ... ht-14,
+             org.mine.mirage:ex-01/ex-02,
+             org.mine.mirage:cr-01/cr-02,
+             org.mine.mirage:drill-01
+    │ Ditto REST /api/2/things/... (серверный прокси с учётными данными)
+    ▼
+GET /api/twin → исходные KPI и полное состояние → 3D MINE//MIRAGE
+    ▲
+POST /api/command → сценарий движку → MQTT → Ditto → следующий GET
+```
 
----
+В браузере отключён вызов `MineOperations.step`; вычислительный движок работает только на сервере. `/api/command` возвращает **подтверждение команды, а не пересчитанное состояние**. Обновления 3D и KPI приходят только из Ditto.
 
-Platform: [aleka07/openegiz](https://github.com/aleka07/openegiz). If the platform was useful to you, support the project with a star on GitHub.
+Сторонние сервисы, включая Ditto, InfluxDB и Grafana, принадлежат оригинальному OpenEgiz и сохраняют собственные лицензии. Учебная 3D-визуализация написана на WebGL / Three.js, без CDN.
+
+## Что показать на стенде
+
+1. **Диспетчеризация и транспорт.** Откройте `http://localhost:5233/`, выберите `Самосвал · колёса`, наблюдайте маршруты, рейсы, топливо и KPI; сущности `ht-*` меняются в Eclipse Ditto.
+2. **Буровзрывные работы.** Нажмите `Буровзрывные работы` → `Запустить учебный цикл`; наблюдайте сетку из 20 скважин, MWD-показатели, изменение фракций и последующий эффект на погрузку и дробилку; `drill-01` меняется в Ditto. `Отменить подготовку` отменяет незавершённую стадию. **В параметрах нет реальных расчётов заряда**.
+3. **Отказ дробилки A.** `Планы и сценарии` → `Отказ дробилки A`: поток и очереди меняются, обновляются `cr-01`, самосвалы и KPI; отмена: `↺` (сброс смены) либо сценарий ремонта `repair`.
+4. **Ливень.** `Планы и сценарии` → `Ливень`; наблюдайте снижение видимости и изменения на 3D-местности. Отмена: `↺`.
+5. **Карта.** Переключите «Сарыарка» / «Алтай». Оба рудника имеют синтетические маршруты и собственную геометрию, а серверный корневой двойник меняет `map`.
+
+Показатели синтетические; каждый сценарий демонстрирует поведение обучающей системы и не является техническим регламентом промышленного объекта.
+
+## Проверка кода без Docker
+
+```bash
+cd mine-mirage
+node --test tests/engine.test.mjs
+```
+
+Интеграционный тест с настоящими Ditto/MQTT выполняется при запуске в Docker: `/api/twin` читает именно Ditto, а не собственные данные симулятора. Дополнительные ручные шаги на компьютере судьи не требуются.
+
+## Данные и допущения
+
+- Числа геометрии, маршрутов, скорости, износа, топлива, содержания Cu, MWD и фрагментации — **синтетические сценарные значения**, определённые в `mine-mirage/web/live/maps/` и `mine-mirage/web/live/modules/`. Они не получены с оборудования действующего предприятия и не валидированы паспортами.
+- Два вымышленных карьера вдохновлены типовой схемой открытых горных работ (бурение → погрузка → перевозка → дробление). В текущей версии нет подтверждённых паспортных чисел конкретного месторождения; все числовые допущения следует понимать как условные.
+- В составе модуля отсутствуют коммерческие датасеты и персональные данные.
+- **Проверить права на 3D-файлы обязательно до публикации**: источник/лицензия ряда GLB из исходного архива не приложены. Список в `THIRD_PARTY_ASSETS.md`. Если права на распространение нельзя подтвердить, соответствующие объекты нужно заменить разрешёнными авторскими моделями или удалить.
+
+## Лицензирование
+
+Авторский код, созданный для MINE//MIRAGE и конкурсного интегратора, предоставляется под MIT (`LICENSE`), при условии права участников распространять вклад. Код и зависимости исходной OpenEgiz сохраняют условия собственных лицензий. Наличие MIT-файла само по себе **не меняет условия лицензирования неизвестных исходных GLB/изображений**.
+
+## Известные ограничения
+
+- Веб-рендер на CPU может работать медленно; переключатель графики «▦» переводит сцену в экономный режим. Тяжёлые оригинальные GLB-модели заметно увеличивают загрузку.
+- Инженерная лаборатория `/engineering.html` — отдельный офлайн-песочница для сравнения альтернатив и **не заявлена как подтверждённый модуль на платформе**. Основной конкурсный стенд — `/`.
+- API команды и веб-интерфейс работают на одном хосте; защита от недоверенных внешних клиентов и реальная инженерная калибровка остаются вне области конкурсной демонстрации.
+- Полный Docker e2e на окружении 8 CPU/16 GB необходимо проверить отдельно; разработочная проверка с имитацией Ditto/MQTT не заменяет этого испытания.

@@ -1,0 +1,22 @@
+[
+  {
+    "map": "saryarka",
+    "physicalCorridors": 23,
+    "logicalLinks": 34,
+    "sampledRoadVertices": 1601,
+    "outsideMeshVertices": 0,
+    "medianVerticalOffsetM": 0.65,
+    "logicalLinksOver12pctGrade": 24,
+    "physicalCorridorsOver16pctGrade": 7
+  },
+  {
+    "map": "altai",
+    "physicalCorridors": 23,
+    "logicalLinks": 34,
+    "sampledRoadVertices": 1690,
+    "outsideMeshVertices": 0,
+    "medianVerticalOffsetM": 0.65,
+    "logicalLinksOver12pctGrade": 28,
+    "physicalCorridorsOver16pctGrade": 10
+  }
+]
